@@ -1,0 +1,563 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\geometry{a4paper, margin=2.5cm}
+
+\begin{document}
+
+% PORTADA
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Large UNIVERSIDAD DE GUADALAJARA}\\[0.3cm]
+{\large Centro Universitario de Ciencias Económico Administrativas}\\[0.3cm]
+{\large CUCEA}\\[1.5cm]
+
+{\Huge \textbf{Proyecto Final de Estadística}}\\[0.7cm]
+{\LARGE Estadística I}\\[1cm]
+
+{\Large \textbf{Análisis Estadístico de Proyecciones de Población de la República Checa}}\\[2cm]
+
+\textbf{Alumna:} Frida Suárez De Luna\\[0.4cm]
+\textbf{Profesor:} Rigoberto Silva Robles\\[0.4cm]
+\textbf{Fecha:} Mayo 2026
+
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+En este proyecto se realizó un análisis estadístico de datos poblacionales correspondientes a la República Checa. Para ello se utilizó Python como herramienta principal de procesamiento de datos, cálculo estadístico y generación de gráficas.
+
+El objetivo del trabajo fue aplicar los temas vistos en Estadística I, incluyendo medidas de tendencia central, medidas de dispersión, probabilidad, distribuciones de probabilidad, conteo, combinaciones, permutaciones e índices estadísticos.
+
+Los datos fueron organizados y limpiados mediante Python, posteriormente se calcularon los resultados y se generaron gráficas que permiten interpretar visualmente el comportamiento de la población.
+
+\section{Carga y limpieza de datos}
+
+Primero se cargó el archivo de Excel con las proyecciones de población. Después se identificó la fila donde comenzaba la tabla real, se eliminaron columnas innecesarias y se convirtieron los valores numéricos para poder realizar los cálculos.
+
+Este paso fue importante porque permitió trabajar con una base limpia y organizada.
+
+\section{Medidas de Tendencia Central}
+
+Las medidas de tendencia central permiten identificar valores representativos dentro de un conjunto de datos.
+
+\subsection{Media}
+
+La media representa el promedio de los datos.
+
+\[
+\bar{x}=\frac{\sum x_i}{n}
+\]
+
+Resultado obtenido:
+
+\[
+\bar{x}=1,236,097.17
+\]
+
+La media indica que el promedio de población en los datos analizados es aproximadamente de 1,236,097 personas. Este valor se ve elevado por los grupos con poblaciones más grandes.
+
+\subsection{Mediana}
+
+La mediana es el valor central cuando los datos están ordenados.
+
+Resultado obtenido:
+
+\[
+Mediana=437,400
+\]
+
+Esto significa que la mitad de los valores se encuentra por debajo de 437,400 y la otra mitad por encima.
+
+\subsection{Moda}
+
+La moda es el valor que aparece con mayor frecuencia.
+
+Resultado obtenido:
+
+\[
+Moda=62,698
+\]
+
+La moda indica que existen valores pequeños que se repiten o aparecen con mayor frecuencia dentro del conjunto de datos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm]{tendencia_central.png}
+\caption{Media, mediana y moda}
+\end{figure}
+
+\section{Medidas de Dispersión}
+
+Las medidas de dispersión permiten conocer qué tan separados están los datos respecto a un valor central.
+
+\subsection{Rango}
+
+El rango mide la diferencia entre el valor máximo y el valor mínimo.
+
+\[
+Rango=X_{max}-X_{min}
+\]
+
+Resultado:
+
+\[
+Rango=10,970,708
+\]
+
+El rango muestra que existe una diferencia amplia entre los grupos poblacionales más pequeños y los más grandes.
+
+\subsection{Rango intercuartílico}
+
+El rango intercuartílico mide la dispersión del 50\% central de los datos.
+
+\[
+RIQ=Q_3-Q_1
+\]
+
+Resultado:
+
+\[
+RIQ=641,764.5
+\]
+
+Este resultado indica que la parte central de los datos todavía presenta una variación considerable.
+
+\subsection{Varianza}
+
+La varianza mide la dispersión promedio de los datos respecto a la media.
+
+\[
+s^2=\frac{\sum (x_i-\bar{x})^2}{n-1}
+\]
+
+Resultado:
+
+\[
+s^2=3,718,297,922,790.28
+\]
+
+La varianza es alta porque los datos poblacionales tienen diferencias grandes entre grupos.
+
+\subsection{Desviación estándar}
+
+La desviación estándar indica cuánto se alejan los datos del promedio.
+
+\[
+s=\sqrt{s^2}
+\]
+
+Resultado:
+
+\[
+s=1,928,288.86
+\]
+
+Esto significa que los valores pueden alejarse de la media en aproximadamente 1.9 millones de personas.
+
+\subsection{Desviación media}
+
+La desviación media mide el promedio de las distancias absolutas respecto a la media.
+
+\[
+DM=\frac{\sum |x_i-\bar{x}|}{n}
+\]
+
+Resultado:
+
+\[
+DM=1,251,769.54
+\]
+
+La desviación media confirma que existe una dispersión importante entre los valores analizados.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm]{histograma.png}
+\caption{Histograma de población}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm]{boxplot.png}
+\caption{Boxplot de dispersión}
+\end{figure}
+
+\section{Introducción a Probabilidad}
+
+La probabilidad permite medir la posibilidad de que ocurra un evento. En este proyecto se utilizó para calcular la posibilidad de seleccionar personas pertenecientes a determinados grupos de edad.
+
+\[
+P(A)=\frac{\text{casos favorables}}{\text{casos totales}}
+\]
+
+\section{Distribución de Probabilidad con VAD}
+
+Una variable aleatoria discreta toma valores contables. En este proyecto se aplicó en distribuciones como la binomial, Poisson e hipergeométrica.
+
+Ejemplo: seleccionar una cantidad específica de personas menores de cierta edad dentro de una muestra.
+
+\section{Distribución de Probabilidad con VAC}
+
+Una variable aleatoria continua puede tomar valores dentro de un intervalo. En este proyecto se relaciona con la distribución normal, ya que analiza el comportamiento de los datos alrededor de la media.
+
+\section{Datos Agrupados}
+
+Los datos agrupados permiten organizar la información en intervalos o categorías para facilitar su análisis.
+
+\subsection{Moda en datos agrupados}
+
+La moda en datos agrupados representa el intervalo con mayor frecuencia.
+
+En este caso, los grupos de edad con mayor concentración permiten identificar dónde se ubican los valores más frecuentes.
+
+\subsection{Mediana en datos agrupados}
+
+La mediana en datos agrupados permite ubicar el punto central de la distribución considerando frecuencias acumuladas.
+
+\subsection{Media en datos agrupados}
+
+La media en datos agrupados se calcula usando los puntos medios de los intervalos y sus frecuencias.
+
+\[
+\bar{x}=\frac{\sum f_i x_i}{\sum f_i}
+\]
+
+\section{Datos No Agrupados}
+
+Los datos no agrupados se trabajan directamente como aparecen en la base de datos, sin formar intervalos.
+
+\subsection{Moda en datos no agrupados}
+
+La moda fue:
+
+\[
+62,698
+\]
+
+Este valor representa el dato más frecuente.
+
+\subsection{Mediana en datos no agrupados}
+
+La mediana fue:
+
+\[
+437,400
+\]
+
+Este valor divide los datos en dos partes iguales.
+
+\subsection{Media en datos no agrupados}
+
+La media fue:
+
+\[
+1,236,097.17
+\]
+
+Este resultado representa el promedio general de los datos.
+
+\section{Diagrama de Venn}
+
+El diagrama de Venn se utiliza para representar relaciones entre eventos. En este proyecto los eventos fueron:
+
+\[
+A=\text{personas de 4 años o menos}
+\]
+
+\[
+B=\text{personas menores de 10 años}
+\]
+
+Como el evento A está contenido dentro del evento B, se puede interpretar que todas las personas de 4 años o menos pertenecen también al grupo de menores de 10 años.
+
+\section{Conteo}
+
+El conteo permite determinar el número de formas posibles en que puede ocurrir un evento.
+
+En el proyecto se utilizó el conteo para trabajar con muestras de población, por ejemplo al seleccionar 1000 personas.
+
+\[
+n=1000
+\]
+
+\section{Combinación}
+
+La combinación permite seleccionar elementos sin importar el orden.
+
+\[
+C(n,r)=\frac{n!}{r!(n-r)!}
+\]
+
+En el proyecto se relaciona con la selección de personas dentro de una muestra, donde el orden de selección no importa.
+
+\section{Permutación}
+
+La permutación permite ordenar elementos cuando el orden sí importa.
+
+\[
+P(n,r)=\frac{n!}{(n-r)!}
+\]
+
+Aunque en el análisis poblacional el orden no fue el elemento principal, el concepto se incluyó como parte del estudio de conteo.
+
+\section{Probabilidad Condicional}
+
+La probabilidad condicional calcula la probabilidad de que ocurra un evento sabiendo que otro ya ocurrió.
+
+\[
+P(A|B)=\frac{P(A \cap B)}{P(B)}
+\]
+
+Resultados:
+
+\[
+P(A)=0.0490
+\]
+
+\[
+P(B)=0.4166
+\]
+
+\[
+P(A|B)=0.1177
+\]
+
+Esto significa que, dentro del grupo de menores de 10 años, la proporción de personas de 4 años o menos es aproximadamente 11.77\%.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{probabilidades.png}
+\caption{Probabilidades calculadas}
+\end{figure}
+
+\section{Teorema de Bayes}
+
+El teorema de Bayes permite actualizar una probabilidad considerando información previa.
+
+\[
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+\]
+
+En este proyecto se utilizó para interpretar la relación entre el grupo de personas de 4 años o menos y el grupo de menores de 10 años.
+
+Resultado:
+
+\[
+P(A|B)=0.1177
+\]
+
+\section{Distribución Binomial}
+
+La distribución binomial se utiliza cuando existen dos resultados posibles: éxito o fracaso.
+
+\[
+P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
+\]
+
+Datos utilizados:
+
+\[
+n=1000
+\]
+
+\[
+p=0.4166
+\]
+
+\[
+k=416
+\]
+
+Resultado:
+
+\[
+P(X=416)=0.02556
+\]
+
+La interpretación es que existe una probabilidad aproximada de 2.56\% de obtener exactamente 416 personas del grupo definido en una muestra de 1000.
+
+\section{Distribución Poisson}
+
+La distribución Poisson modela eventos poco frecuentes.
+
+\[
+P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
+\]
+
+Datos:
+
+\[
+\lambda=0.0490
+\]
+
+\[
+k=1
+\]
+
+Resultado:
+
+\[
+P(X=1)=0.04672
+\]
+
+Esto representa la probabilidad de que ocurra una vez el evento analizado bajo una tasa pequeña.
+
+\section{Distribución Hipergeométrica}
+
+La distribución hipergeométrica se utiliza cuando se extraen elementos sin reemplazo.
+
+\[
+P(X=x)=\frac{\binom{K}{x}\binom{N-K}{n-x}}{\binom{N}{n}}
+\]
+
+Datos:
+
+\[
+N=5,642,582
+\]
+
+\[
+K=276,925
+\]
+
+\[
+n=1000
+\]
+
+\[
+x=50
+\]
+
+Resultado:
+
+\[
+P(X=50)=0.05727
+\]
+
+La probabilidad de seleccionar exactamente 50 personas de 4 años o menos en una muestra de 1000 es aproximadamente 5.73\%.
+
+\section{Distribución Normal}
+
+La distribución normal permite representar datos continuos alrededor de la media.
+
+\[
+f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+\]
+
+Datos:
+
+\[
+\mu=1,236,097.17
+\]
+
+\[
+\sigma=1,928,288.86
+\]
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm]{distribucion_normal.png}
+\caption{Distribución normal}
+\end{figure}
+
+La curva muestra cómo se comportan los datos alrededor de la media. Debido a la dispersión alta, la curva se extiende ampliamente.
+
+\section{Distribución Normal Estándar}
+
+La distribución normal estándar transforma un valor en puntaje Z.
+
+\[
+z=\frac{x-\mu}{\sigma}
+\]
+
+Con:
+
+\[
+x=500,000
+\]
+
+Resultado:
+
+\[
+z=-0.3817
+\]
+
+Esto indica que el valor 500,000 se encuentra aproximadamente 0.38 desviaciones estándar por debajo de la media.
+
+\section{Índice Paasche}
+
+El índice Paasche utiliza valores del periodo actual como referencia.
+
+\[
+P=\frac{\sum P_1Q_1}{\sum P_0Q_1}\times 100
+\]
+
+Resultado:
+
+\[
+99.8394
+\]
+
+Este valor indica una ligera disminución respecto al año base.
+
+\section{Índice Laspeyres}
+
+El índice Laspeyres utiliza valores del periodo base como referencia.
+
+\[
+L=\frac{\sum P_1Q_0}{\sum P_0Q_0}\times 100
+\]
+
+Resultado:
+
+\[
+99.8345
+\]
+
+El resultado menor a 100 muestra una ligera reducción en la comparación entre años.
+
+\section{Índice Fisher}
+
+El índice Fisher es la media geométrica entre Paasche y Laspeyres.
+
+\[
+F=\sqrt{P \times L}
+\]
+
+Resultado:
+
+\[
+99.8370
+\]
+
+Este índice confirma una disminución ligera en el comportamiento poblacional comparado.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=11cm]{indices.png}
+\caption{Índices Paasche, Laspeyres y Fisher}
+\end{figure}
+
+\section{Conclusión}
+
+El proyecto permitió aplicar los temas principales de Estadística I utilizando datos reales de población de la República Checa. Mediante Python se logró limpiar la base de datos, calcular medidas estadísticas, aplicar probabilidades, trabajar con distribuciones y generar gráficas.
+
+Los resultados muestran que los datos tienen una dispersión considerable, ya que la media es mayor que la mediana y existen diferencias importantes entre los valores mínimos y máximos. Las probabilidades permitieron analizar grupos específicos de edad, mientras que las distribuciones ayudaron a modelar escenarios estadísticos.
+
+Finalmente, los índices Paasche, Laspeyres y Fisher permitieron comparar el comportamiento de la población entre años. El uso de LaTeX permitió presentar el trabajo de manera ordenada y profesional.
+
+\end{document}
